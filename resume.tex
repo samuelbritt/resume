@@ -6,46 +6,54 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,letterpaper]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,letterpaper,roman]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
-\moderncvstyle{casual}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-% \moderncvstyle{oldstyle}
-% \moderncvstyle{banking}
-\moderncvcolor{orange}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-\renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\moderncvstyle{casual} % options casual, classic, oldstyle, banking
+\moderncvcolor{orange} % options blue, orange, green, red, purple, grey, black
+% \renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 \nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
 
-% character encoding
-%\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                         % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-
-% adjust the page margins
-\usepackage[scale=0.75]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}      % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\usepackage[hscale=0.85,top=.4in,bottom=.3in,includefoot]{geometry} % adjust the page margins
+\setlength{\hintscolumnwidth}{1.9cm}          % width of date column
 
 % personal data
 \firstname{Samuel}
 \familyname{Britt}
 
 % All the following are optional, remove the line if not wanted
-% \title{Resume title (optional)}
-\title{\vspace{-2.5em}}
+\title{Resume title (optional)\vspace{-2em}}
+% \title{\vspace{-2.1em}}
 % \title{\small%
 %   \emailsymbol\emaillink{samuelbritt@gmail.com}\\
 %   \phonesymbol(205)~515~0618\vspace{-4.5em}
 % }
 
+\input{icons.tex}
+\newcommand\logo[1]{%
+  \raisebox{0pt}{%
+    % \resizebox{7pt}{!}{#1}%
+    #1%
+    \hspace{2pt}%
+  }%
+}
+\newcommand\githublogo{\logo{\github}}
+\newcommand\linkedinlogo{\logo{\linkedin}}
+
 \renewcommand\footersymbol{~~~}
 \address{3155 Flowers Rd. S Apt. Q}{Atlanta, GA 30341}
 \email{samuelbritt@gmail.com}
 \phone{(205)~515~0618}
+\extrainfo{%
+  \githublogo \httplink{www.github.com/samuelbritt}
+  \footersymbol
+  \linkedinlogo \httplink{www.linkedin.com/in/samuelbritt}
+}
 % \mobile{(205)~515~0618}
 % \fax{+3~(456)~789~012}
 % \homepage{www.johndoe.com}
 % \extrainfo{additional information}
-% \photo[64pt][0.4pt]{picture}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \photo[64pt][0.4pt]{picture} % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
 % \quote{Some quote (optional)}
 
 % to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
@@ -57,16 +65,141 @@
 %\usepackage{multibib}
 %\newcites{book,misc}{{Books},{Others}}
 %----------------------------------------------------------------------------------
-%            content
+%            bib content
 %----------------------------------------------------------------------------------
+
+\usepackage{siunitx}
+\usepackage{mathpazo}
+\usepackage{microtype}
+\usepackage[super]{nth}
+
+\newcommand\cvdesc[2]{%
+  \cventry{}%
+  {#1}%
+  {}%
+  {\small #2}%
+  {}%
+  {}%
+}
+
+% \renewcommand*\sectionfont{\fontfamily{pzc}\fontsize{20}{24}\selectfont}
+\renewcommand*\sectionfont{\scshape \lsstyle \fontsize{14}{24}\selectfont}
+
 \begin{document}
-%\begin{CJK*}{UTF8}{gbsn}                     % to typeset your resume in Chinese using CJK
-%-----       resume       ---------------------------------------------------------
 \makecvtitle
 
 \section{Education}
-\cventry{year--year}{A Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+% \cventry{year--year}{A Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
+\cventry
+  {2011--\phantom{2013}}
+  {M.S.}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {%
+    Computer Science, Specialization in Systems Software.  \hfill Current GPA: 3.5
+    \\ Expected completion: May 2013.
+  }
+
+\cventry
+  {2009--2011}
+  {Post-Graduate Research}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {%
+    Completed 2 years of a 4-year Ph.D.\ program in Materials Engineering.  \hfill GPA: 3.9
+    \\Modeling and simulation research in mechanics of $\alpha$+$\beta$ titanium alloys.
+  }
+
+\cventry
+  {2004--2009}
+  {B.S.}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {Materials Science and Engineering. \hfill GPA: 4.0}
+
+\subsection{Advanced Coursework}
+\cvitem{Computer Science}{Adv.\ Operating Systems, Real Time \&
+  Embedded Systems, Computability and Algorithms, HPC Architecture,
+  Distributed and Internet Computing, Applied Cryptography.}
+\cvitem{Modeling \& Simulation}{Statistics \& Numerical Methods,
+  Continuum Mechanics, Adv.\ Constitutive Relations, Quantitative
+  Characterization of Materials, Parallel Scientific Computing.}
+\cvitem{Engineering}{Mechanical Behavior of Composites,
+  Thermodynamics of Materials, Kinetics of Phase Transformations,
+  Studies in structure-property relationships of alloys, ceramics, polymers, semiconductors, and
+  composites.}
+
+
+\section{Select Scholarships \& Awards}
+  \cvdesc{Henry Ford Award}{for the junior engineering student with
+    the most outstanding academic record}
+  \cvdesc{Wohlford Co-Op Scholarship}{for outstanding contributions to
+    Tech and high scholastic achievement}
+  % \cvdesc{Chapman-Pentecost Scholarship}{for most outstanding academic
+  %   record as a junior MSE student}
+  % \cvdesc{Blount Scholarship}{for outstanding academic performance as
+  %   an engineering student from Alabama}
+  \cvdesc{President's Scholarship}{Tech's premier merit-based
+    scholarship awarded to approximately \SI{2}{\percent} of students}
+  \cvdesc{National Merit Scholarship}{awarded to the top
+    \SI{0.6}{\percent} of the \num{1.4} million or so high school
+    applicants}
+  \cvdesc{S.\ Truett Cathy Scholar Award}{awarded to the top $25$
+    Chick-fil-A employees nationwide for demonstrated excellence in
+    the areas of work, education, community and personal leadership
+    development}
+  % \cvdesc{Chick-fil-A Leadership Scholarship}{for demonstrated
+    % excellence in the areas of work, education, community and personal
+    % leadership development}
+
+\section{Experience}
+
+\cventry{2012}
+  {Teaching assistant?}
+  {}
+  {}
+  {}
+  {}
+
+\cventry{2009--2011}
+  {Post-Graduate Research}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {%
+    asdf
+  }
+
+\let\labelitemi\labelitemii
+\cventry{2005--2009}
+  {Engineering Intern}
+  {Southern Research Institute}
+  {Birmingham, AL}
+  {}
+  {%
+    Five co-op terms as a engineering assistant, performed
+    high-temperature materials research for the aerospace industry.
+    \begin{itemize}%
+      \item Designed a facility capable of thermogravimety and
+        dilatometry of carbon-phenolics up to \SI{650}{\celsius} under
+        pressures up to \SI{4.15}{\mega\pascal}.
+      \item Studied the kinetics of phenolic resin pyrolysis using
+        isothermal and nonisothermal thermogravimetry at temperatures
+        up to \SI{1100}{\celsius}. Wrote a report that was presented
+        at the \nth{56} JANNAF Propulsion Meeting.
+      \item Spearheaded effort to develop, build, and test a facility
+        capable of tensile permeability tests up to
+        \SI{1900}{\celsius}.
+      \item Ran and maintained a permeability facility testing
+        carbon-phenolic composites up to \SI{1300}{\celsius}.
+    \end{itemize}
+  }
+
+
+\end{document}
 
 \section{Master thesis}
 \cvitem{title}{\emph{Title}}
