@@ -1,78 +1,63 @@
-%% start of file `template.tex'.
-%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
+% options: font family ('sans' and 'roman'), standard article options
+\documentclass[10pt,letterpaper,roman]{moderncv}
 
+% moderncv themes (load first)
+% options: casual, classic, oldstyle, banking
+\moderncvstyle{classic}
 
-\documentclass[10pt,letterpaper,roman]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+ % options: blue, orange, green, red, purple, grey, black
+\moderncvcolor{orange}
 
-% moderncv themes
-\moderncvstyle{casual} % options casual, classic, oldstyle, banking
-\moderncvcolor{orange} % options blue, orange, green, red, purple, grey, black
-% \renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
-
-\usepackage[hscale=0.85,top=.4in,bottom=.3in,includefoot]{geometry} % adjust the page margins
-\setlength{\hintscolumnwidth}{1.9cm}          % width of date column
-
-% personal data
-\firstname{Samuel}
-\familyname{Britt}
-
-% All the following are optional, remove the line if not wanted
-\title{Resume title (optional)\vspace{-2em}}
-% \title{\vspace{-2.1em}}
-% \title{\small%
-%   \emailsymbol\emaillink{samuelbritt@gmail.com}\\
-%   \phonesymbol(205)~515~0618\vspace{-4.5em}
-% }
-
-\input{icons.tex}
-\newcommand\logo[1]{%
-  \raisebox{0pt}{%
-    % \resizebox{7pt}{!}{#1}%
-    #1%
-    \hspace{2pt}%
-  }%
-}
-\newcommand\githublogo{\logo{\github}}
-\newcommand\linkedinlogo{\logo{\linkedin}}
-
-\renewcommand\footersymbol{~~~}
-\address{3155 Flowers Rd. S Apt. Q}{Atlanta, GA 30341}
-\email{samuelbritt@gmail.com}
-\phone{(205)~515~0618}
-\extrainfo{%
-  \githublogo \httplink{www.github.com/samuelbritt}
-  \footersymbol
-  \linkedinlogo \httplink{www.linkedin.com/in/samuelbritt}
-}
-% \mobile{(205)~515~0618}
-% \fax{+3~(456)~789~012}
-% \homepage{www.johndoe.com}
-% \extrainfo{additional information}
-% \photo[64pt][0.4pt]{picture} % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-% \quote{Some quote (optional)}
-
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
-%\makeatletter
-%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\makeatother
-
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
-%----------------------------------------------------------------------------------
-%            bib content
-%----------------------------------------------------------------------------------
-
-\usepackage{siunitx}
 \usepackage{mathpazo}
 \usepackage{microtype}
+\usepackage{etoolbox}
+\usepackage{relsize}
+\usepackage{siunitx}
 \usepackage[super]{nth}
+\usepackage[hscale=0.85,top=.4in,bottom=.3in]{geometry}
 
+% Toggles for various versions. See etoolbox documentation.
+\newtoggle{engineering}
+
+% The version
+\toggletrue{engineering}
+
+%  default font; use '\sfdefault' for sans serif, '\rmdefault' for
+%  roman, or any tex font name
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Small caps headings
+\renewcommand*\sectionfont{%
+  \scshape \lsstyle \fontsize{14}{24}\selectfont%
+}
+
+% Italics, not slanted
+\renewcommand*{\titlefont}{\large\mdseries\itshape}
+
+% Pretty ampersand
+\let\oldamp\&
+\renewcommand\&{{\itshape \oldamp}}
+
+% Pretty Languages
+\newcommand\matlab{\textsc{Matlab}}
+\newcommand\fortran{\textsc{Fortran}}
+\newcommand\CC{C%
+  \nolinebreak[4]\hspace{-.05em}\raisebox{.25ex}{\relsize{-1}{++}}%
+}
+
+
+% uncomment to suppress page numbering for CVs longer than one page
+\nopagenumbers{}
+
+% width of date column
+\setlength{\hintscolumnwidth}{1.9cm}
+
+% between items in footer (only in `casual` style)
+
+% lists use dashes instead of open bullets
+\let\labelitemi\labelitemii
+
+% Short description
 \newcommand\cvdesc[2]{%
   \cventry{}%
   {#1}%
@@ -82,87 +67,68 @@
   {}%
 }
 
-% \renewcommand*\sectionfont{\fontfamily{pzc}\fontsize{20}{24}\selectfont}
-\renewcommand*\sectionfont{\scshape \lsstyle \fontsize{14}{24}\selectfont}
+% Copied from moderncvclassic.cls for the sole purpose of using \itshape
+% instead of \slshape in the location slot.
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\itshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+    \ifx&#7&%
+    \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}%
+}
+
+% Github and Linkedin footer items
+\input{icons.tex}
+\newcommand\smallsymbol[1]{\raisebox{0pt}{#1\hspace{2pt}}}
+\newcommand\githubsymbol{\smallsymbol{\githubpic}}
+\newcommand\github[1]{\githubsymbol\httplink{#1}}
+
+\newcommand\linkedinsymbol{\smallsymbol{\linkedinpic}}
+\newcommand\linkedin[1]{\linkedinsymbol\httplink{#1}}
+
+% personal data
+\firstname{Samuel}
+\familyname{Britt}
+
+% All the following are optional
+\address{3155 Flowers Rd. S Apt. Q}{Atlanta, GA 30341}
+\email{sam@britts.us}
+\phone{(205)~515~0618}
+\extrainfo{%
+  \github{github.com/samuelbritt}
+%   \\ \footersymbol
+%   \linkedin{linkedin.com/in/samuelbritt}
+}
+% \mobile{(205)~515~0618}
+% \fax{+3~(456)~789~012}
+% \homepage{www.johndoe.com}
+% % \photo[pic-height][frame-thickness]{pic-file}
+% \photo[64pt][0.4pt]{picture}
+
+% Optional
+% \quote{Some quote (optional)}
+\iftoggle{engineering}{
+  \title{Materials Engineer -- Systems Developer}
+}{}
 
 \begin{document}
 \makecvtitle
+\vspace{-3.5em}
 
 \section{Education}
-% \cventry{year--year}{A Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry
-  {2011--\phantom{2013}}
+\cventry{2011--\phantom{2013}}
   {M.S.}
   {Georgia Institute of Technology}
   {Atlanta, GA}
   {}
   {%
-    Computer Science, Specialization in Systems Software.  \hfill Current GPA: 3.5
-    \\ Expected completion: May 2013.
+    Computer Science, Specialization in Systems Software.
+    \hfill Current GPA: 3.5 \\
+    Expected completion: May 2013.
   }
-
-\cventry
-  {2009--2011}
-  {Post-Graduate Research}
-  {Georgia Institute of Technology}
-  {Atlanta, GA}
-  {}
-  {%
-    Completed 2 years of a 4-year Ph.D.\ program in Materials Engineering.  \hfill GPA: 3.9
-    \\Modeling and simulation research in mechanics of $\alpha$+$\beta$ titanium alloys.
-  }
-
-\cventry
-  {2004--2009}
-  {B.S.}
-  {Georgia Institute of Technology}
-  {Atlanta, GA}
-  {}
-  {Materials Science and Engineering. \hfill GPA: 4.0}
-
-\subsection{Advanced Coursework}
-\cvitem{Computer Science}{Adv.\ Operating Systems, Real Time \&
-  Embedded Systems, Computability and Algorithms, HPC Architecture,
-  Distributed and Internet Computing, Applied Cryptography.}
-\cvitem{Modeling \& Simulation}{Statistics \& Numerical Methods,
-  Continuum Mechanics, Adv.\ Constitutive Relations of Solids,
-  Quantitative Characterization of Materials, Parallel Scientific
-  Computing.}
-\cvitem{Materials Engineering}{Mechanical Behavior of Composites,
-  Thermodynamics of Materials, Kinetics of Phase Transformations,
-  Studies in structure-property relationships of alloys, ceramics,
-  polymers, semiconductors, and composites.}
-
-\section{Select Scholarships \& Awards}
-  \cvdesc{Henry Ford Award}{for the most outstanding academic record
-    in the junior engineering class}
-  \cvdesc{Wohlford Co-Op Scholarship}{for outstanding contributions to
-    Tech and high scholastic achievement}
-  % \cvdesc{Chapman-Pentecost Scholarship}{for most outstanding academic
-  %   record as a junior MSE student}
-  % \cvdesc{Blount Scholarship}{for outstanding academic performance as
-  %   an engineering student from Alabama}
-  \cvdesc{President's Scholarship}{Tech's premier merit-based
-    scholarship awarded to approximately \SI{2}{\percent} of students}
-  \cvdesc{National Merit Scholarship}{awarded to the top
-    \SI{0.6}{\percent} of the \num{1.4} million or so high school
-    applicants}
-  \cvdesc{S.\ Truett Cathy Scholar Award}{awarded to the top $25$
-    Chick-fil-A employees nationwide for demonstrated excellence in
-    the areas of work, education, community and personal leadership
-    development}
-  % \cvdesc{Chick-fil-A Leadership Scholarship}{for demonstrated
-    % excellence in the areas of work, education, community and personal
-    % leadership development}
-
-\section{Experience}
-
-\cventry{2012}
-  {Teaching assistant?}
-  {}
-  {}
-  {}
-  {}
 
 \cventry{2009--2011}
   {Post-Graduate Research}
@@ -170,132 +136,172 @@
   {Atlanta, GA}
   {}
   {%
-    asdf
+    Completed 2 years of a 4-year Ph.D.\ program in Materials
+    Engineering.
+    \hfill GPA: 3.9 \\
+    Modeling and simulation research in mechanics of $\alpha$+$\beta$
+    titanium alloys.
   }
 
-\let\labelitemi\labelitemii
+\cventry{2004--2009}
+  {B.S.\ with Highest Honors}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {Materials Science and Engineering. \hfill GPA: 4.0}
+
+\section{Skills \& Technologies}
+\cvitem{Proficient in}{Python (and SciPy), C, Git, Mercurial, Linux,
+  Vim, \LaTeX.}
+\cvitem{Exposure to}{\CC, Java, \matlab, \fortran, SQL, OpenMPI,
+  Android development, GDB, Eclipse.}
+
+\section{Experience}
+
+\cventry{2012}
+  {Teaching Assistant, Database Systems}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Advised students in class of over $240$. Graded student
+        projects.
+      \item Held one-on-one meetings to teach high-level concepts such
+        as entity-relationship data modeling, as well as technical
+        help in implementing database-driven applications using MySQL
+        and PHP.
+    \end{itemize}
+  }
+
+\cventry{2012}
+  {User-Level Threading Library, Class Project}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Designed a user-level threading library with interface
+        for allowing user-defined scheduling algorithms. In a group,
+        implemented the library in C.
+      \item Our solution was so successful it was chosen to be the
+        project basis for future offerings of the course.
+    \end{itemize}
+  }
+
+\cventry{2009--2011}
+  {Post-Graduate Research}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {
+    Studied the mechanical response and texture evolution of
+    $\alpha$+$\beta$ titanium alloys via multiscale modeling and
+    simulation.
+    \begin{itemize}
+      \item Developed new, thermally activated constitutive model
+        based on unique properties of the titanium microstructure.
+      \item Implemented material model in \fortran\ to enhance finite
+        element simulation software.
+      \item Built microstructure generation code and post-processing
+        routines using \CC, \matlab, and Python.
+      \item Presented results regularly at the meetings of the Center
+        for Computational Materials Design.
+      \item Administered the computer clusters used by all students in
+        the research group.
+    \end{itemize}
+  }
+
 \cventry{2005--2009}
   {Engineering Intern}
   {Southern Research Institute}
   {Birmingham, AL}
   {}
   {%
-    Five co-op terms as a engineering assistant performing
-    high-temperature materials research for the aerospace industry.
+    Five terms as an engineering co-op, performing high-temperature
+    materials research for the aerospace industry.
     \begin{itemize}%
       \item Designed a facility capable of thermogravimety and
         dilatometry of carbon-phenolics up to \SI{650}{\celsius} under
         pressures up to \SI{4.15}{\mega\pascal}.
-      \item Studied the kinetics of phenolic resin pyrolysis using
-        isothermal and nonisothermal thermogravimetry at temperatures
-        up to \SI{1100}{\celsius}. Wrote a report that was presented
-        at the \nth{56} JANNAF Propulsion Meeting.
-      \item Spearheaded effort to develop, build, and test a facility
+      \item Investigated the kinetics of phenolic resin pyrolysis
+        using isothermal and nonisothermal thermogravimetry at
+        temperatures up to \SI{1100}{\celsius}. Co-authored a report
+        that was presented at the \nth{56} JANNAF Propulsion Meeting.
+      \item Coordinated effort to develop, build, and test a facility
         capable of tensile permeability tests up to
         \SI{1900}{\celsius}.
-      \item Ran and maintained a permeability facility testing
-        carbon-phenolic composites up to \SI{1300}{\celsius}.
+      % \item Oversaw operation and maintenance of a permeability
+      %   facility testing carbon-phenolic composites up to
+      %   \SI{1300}{\celsius}.
     \end{itemize}
   }
 
+\newlength\coursesep
+\setlength{\coursesep}{1.3ex}
+\section{Advanced Coursework}
+\cvitem[\coursesep]{Computer Science}{Adv.\ Operating Systems, Real
+  Time \& Embedded Systems, Computability and Algorithms, HPC
+  Architecture, Applied Cryptography. Upcoming: Internet Computing,
+  Aerospace Real Time Control Software.}
+\cvitem[\coursesep]{Modeling \& Simulation}{Statistics \& Numerical
+  Methods, Parallel Scientific Computing, Adv.\ Constitutive Relations
+  of Solids, Continuum Mechanics, Quantitative Characterization of
+  Materials.}
+\cvitem{Materials Engineering}{Mechanical Behavior of Composites,
+  Thermodynamics of Materials, Kinetics of Phase Transformations,
+  Studies in structure-property relationships of alloys, ceramics,
+  polymers, semiconductors, and composites.}
+
+
+\section{Scholarships \& Awards}
+\cvdesc{Henry Ford Award}{for the most outstanding academic record in
+  the junior engineering class}
+% \cvdesc{Wohlford Co-Op Scholarship}{for outstanding contributions to
+%   Tech and high scholastic achievement}
+% \cvdesc{Chapman-Pentecost Scholarship}{for most outstanding
+%   academic record as a junior MSE student}
+% \cvdesc{Blount Scholarship}{for outstanding academic performance
+%   as an engineering student from Alabama}
+\cvdesc{President's Scholarship}{Tech's premier merit-based
+  scholarship awarded to approximately \SI{2}{\percent} of students}
+\cvdesc{National Merit Scholarship}{awarded to the top
+  \SI{0.6}{\percent} of the \num{1.4} million or so high school
+  applicants}
+% \cvdesc{S.\ Truett Cathy Scholar Award}{awarded to the top $25$
+%   Chick-fil-A employees nationwide for demonstrated excellence in the
+%   areas of work, education, community and personal leadership
+%   development}
+% \cvdesc{Chick-fil-A Leadership Scholarship}{for demonstrated
+%   excellence in the areas of work, education, community and
+%   personal leadership development}
 
 \end{document}
 
-\section{Master thesis}
-\cvitem{title}{\emph{Title}}
-\cvitem{supervisors}{Supervisors}
-\cvitem{description}{Short thesis abstract}
+% Samples...
 
 \section{Experience}
 \subsection{Vocational}
-\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-  Detailed achievements:%
-  \begin{itemize}%
-    \item Achievement 1;
-    \item Achievement 2, with sub-achievements:
-      \begin{itemize}%
-        \item Sub-achievement (a);
-        \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-          \begin{itemize}
-            \item Sub-sub-achievement i;
-            \item Sub-sub-achievement ii;
-            \item Sub-sub-achievement iii;
-          \end{itemize}
-        \item Sub-achievement (c);
-      \end{itemize}
-    \item Achievement 3.
-\end{itemize}}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-\subsection{Miscellaneous}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description}
-
-\section{Languages}
+\cvitem{description}{item}
 \cvitemwithcomment{Language 1}{Skill level}{Comment}
-\cvitemwithcomment{Language 2}{Skill level}{Comment}
-\cvitemwithcomment{Language 3}{Skill level}{Comment}
-
-\section{Computer skills}
-\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
-\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
-\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
-
-\section{Interests}
-\cvitem{hobby 1}{Description}
-\cvitem{hobby 2}{Description}
-\cvitem{hobby 3}{Description}
-
-\section{Extra 1}
 \cvlistitem{Item 1}
 \cvlistitem{Item 2}
 \cvlistitem{Item 3}
+\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+\cventry{year--year}{Job title}{Employer}{City}{}{General description
+  no longer than 1--2 lines.\newline{}%
+  Detailed achievements:%
+  \begin{itemize}%
+    \item Achievement 1;
+    \item Achievement 3.
+\end{itemize}}
 
-\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
+% change the symbol for lists
+\renewcommand{\listitemsymbol}{-~}
 
 \section{Extra 2}
 \cvlistdoubleitem{Item 1}{Item 4}
 \cvlistdoubleitem{Item 2}{Item 5}%\cite{book1}}
 \cvlistdoubleitem{Item 3}{}
 
-% % Publications from a BibTeX file without multibib
-% %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-% %  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-% \nocite{*}
-% \bibliographystyle{plain}
-% \bibliography{publications}                   % 'publications' is the name of a BibTeX file
-
-% % Publications from a BibTeX file using the multibib package
-% %\section{Publications}
-% %\nocitebook{book1,book2}
-% %\bibliographystylebook{plain}
-% %\bibliographybook{publications}              % 'publications' is the name of a BibTeX file
-% %\nocitemisc{misc1,misc2,misc3}
-% %\bibliographystylemisc{plain}
-% %\bibliographymisc{publications}              % 'publications' is the name of a BibTeX file
-
-% \clearpage
-% %-----       letter       ---------------------------------------------------------
-% % recipient data
-% \recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
-% \date{January 01, 1984}
-% \opening{Dear Sir or Madam,}
-% \closing{Yours faithfully,}
-% \enclosure[Attached]{curriculum vit\ae{}}     % use an optional argument to use a string other than "Enclosure", or redefine \enclname
-% \makelettertitle
-
-% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
-
-% Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
-
-% Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
-
-% Albert Einstein discovered that $e=mc^2$ in 1905.
-
-% \[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
-
-% \makeletterclosing
-
-%\clearpage\end{CJK*}                         % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
 \end{document}
-
-
-%% end of file `template.tex'.
