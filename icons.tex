@@ -1,7 +1,8 @@
 % from http://tex.stackexchange.com/questions/70216/adding-sections-such-as-linkedin-and-github-to-a-moderncv-footer
 \usepackage{tikz}
 
-\newcommand{\github}{%
+\definecolor{darkgray}{rgb}{.1, .1, .1}
+\newcommand{\githubpic}{%
 \begin{tikzpicture}[y=0.15pt, x=0.15pt,yscale=-1, inner sep=0pt, outer sep=0pt,opacity=0.4]
   \begin{scope}[shift={(506.69823,386.92617)}]
     \path[fill=gray] (116.9933,59.7217) .. controls (116.9933,71.2283) and
@@ -15,7 +16,7 @@
       (75.3245,59.7217) .. controls (75.3245,48.2152) and (84.6524,38.8873) ..
       (96.1589,38.8873) .. controls (107.6654,38.8873) and (116.9933,48.2152) ..
       (116.9933,59.7217) -- cycle;
-    \path[fill=gray,nonzero rule] (103.4671,45.2878) .. controls (102.9322,45.4374)
+    \path[fill=darkgray,nonzero rule] (103.4671,45.2878) .. controls (102.9322,45.4374)
       and (101.2003,46.2576) .. (100.5403,46.6739) -- (100.1099,46.9454) --
       (99.4882,46.8019) .. controls (99.0810,46.7080) and (98.1204,46.6415) ..
       (96.7048,46.6094) .. controls (94.4953,46.5593) and (93.4339,46.6361) ..
@@ -104,7 +105,7 @@
 \end{tikzpicture}
 }
 
-\newcommand{\linkedin}{%
+\newcommand{\linkedinpic}{%
 \begin{tikzpicture}[y=0.15pt, x=0.15pt,yscale=-1, inner sep=0pt, outer sep=0pt,opacity=0.4]
   \begin{scope}[cm={{0.59444,0.0,0.0,0.59444,(346.38938,123.06674)}}]
     \path[fill=gray] (380.7408,201.6221) -- (434.0804,201.6221) .. controls
