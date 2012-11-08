@@ -33,6 +33,7 @@
 
 % Italics, not slanted
 \renewcommand*{\titlefont}{\large\mdseries\itshape}
+\renewcommand*{\addressfont}{\small\mdseries\itshape}
 
 % Pretty ampersand
 \let\oldamp\&
@@ -51,8 +52,6 @@
 
 % width of date column
 \setlength{\hintscolumnwidth}{1.9cm}
-
-% between items in footer (only in `casual` style)
 
 % lists use dashes instead of open bullets
 \let\labelitemi\labelitemii
@@ -82,7 +81,7 @@
 
 % Github and Linkedin footer items
 \input{icons.tex}
-\newcommand\smallsymbol[1]{\raisebox{0pt}{#1\hspace{2pt}}}
+\newcommand\smallsymbol[1]{\raisebox{-1pt}{#1\hspace{0pt}}}
 \newcommand\githubsymbol{\smallsymbol{\githubpic}}
 \newcommand\github[1]{\githubsymbol\httplink{#1}}
 
@@ -201,8 +200,8 @@
     \begin{itemize}
       \item Developed new, thermally activated constitutive model
         based on unique properties of the titanium microstructure.
-      \item Implemented material model in \fortran\ to enhance finite
-        element simulation software.
+      \item Implemented crystal plasticity material model in \fortran\
+        to enhance finite element simulation software.
       \item Built microstructure generation code and post-processing
         routines using \CC, \matlab, and Python.
       \item Presented results regularly at the meetings of the Center
