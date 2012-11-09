@@ -96,11 +96,11 @@
 \address{3155 Flowers Rd. S Apt. Q}{Atlanta, GA 30341}
 \email{sam@britts.us}
 \phone{(205)~515~0618}
-\extrainfo{%
-  \github{github.com/samuelbritt}
+% \extrainfo{%
+%   \github{github.com/samuelbritt}
 %   \\ \footersymbol
 %   \linkedin{linkedin.com/in/samuelbritt}
-}
+% }
 % \mobile{(205)~515~0618}
 % \fax{+3~(456)~789~012}
 % \homepage{www.johndoe.com}
@@ -110,12 +110,17 @@
 % Optional
 % \quote{Some quote (optional)}
 \iftoggle{engineering}{
-  \title{Materials Engineer -- Systems Developer}
+  % \title{Materials Engineer -- Systems Developer}
+  % \title{From materials engineering to software development through a
+  % passion for technology.}
+  \title{\normalsize Seeking to leverage an engineering background to
+  pursue systems software develeopment through a passion for
+  technology.}
 }{}
 
 \begin{document}
 \makecvtitle
-\vspace{-3.5em}
+\vspace*{-3em}
 
 \section{Education}
 \cventry{2011--\phantom{2013}}
@@ -180,11 +185,9 @@
   {}
   {
     \begin{itemize}
-      \item Designed a user-level threading library with interface
-        for allowing user-defined scheduling algorithms. In a group,
-        implemented the library in C.
-      \item Our solution was so successful it was chosen to be the
-        project basis for future offerings of the course.
+      \item Developed a C threading library that allowed user-defined
+        thread scheduling. The professor selected the library to be
+        used in future course offerings.
     \end{itemize}
   }
 
@@ -220,13 +223,13 @@
     Five terms as an engineering co-op, performing high-temperature
     materials research for the aerospace industry.
     \begin{itemize}%
-      \item Designed a facility capable of thermogravimety and
-        dilatometry of carbon-phenolics up to \SI{650}{\celsius} under
-        pressures up to \SI{4.15}{\mega\pascal}.
       \item Investigated the kinetics of phenolic resin pyrolysis
         using isothermal and nonisothermal thermogravimetry at
         temperatures up to \SI{1100}{\celsius}. Co-authored a report
         that was presented at the \nth{56} JANNAF Propulsion Meeting.
+      \item Designed a facility capable of thermogravimety and
+        dilatometry of carbon-phenolics up to \SI{650}{\celsius} under
+        pressures up to \SI{4.15}{\mega\pascal}.
       \item Coordinated effort to develop, build, and test a facility
         capable of tensile permeability tests up to
         \SI{1900}{\celsius}.
@@ -239,10 +242,10 @@
 \newlength\coursesep
 \setlength{\coursesep}{1.3ex}
 \section{Advanced Coursework}
-\cvitem[\coursesep]{Computer Science}{Adv.\ Operating Systems, Real
-  Time \& Embedded Systems, Computability and Algorithms, HPC
+\cvitem[\coursesep]{Computer Science}{Adv.\ Operating Systems,
+  Real-Time \& Embedded Systems, Computability and Algorithms, HPC
   Architecture, Applied Cryptography. Upcoming: Internet Computing,
-  Aerospace Real Time Control Software.}
+  Real-Time Avionic Control Software.}
 \cvitem[\coursesep]{Modeling \& Simulation}{Statistics \& Numerical
   Methods, Parallel Scientific Computing, Adv.\ Constitutive Relations
   of Solids, Continuum Mechanics, Quantitative Characterization of
