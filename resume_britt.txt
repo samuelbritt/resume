@@ -1,0 +1,81 @@
+Samuel Britt
+
+3155 Flowers Rd. S Apt. Q
+Atlanta, GA 30341
+(205) 515 0618
+samuelbritt@gmail.com
+
+
+EDUCATION
+
+2011– May 2013 (expected)
+M.S., Georgia Institute of Technology, Atlanta, GA
+Computer Science, Specialization in Systems Software. 
+Current GPA: 3.7.
+
+2009–2011
+Post-Graduate Research, Georgia Institute of Technology, Atlanta, GA
+Completed 2 years of a 4-year Ph.D. program in Materials Engineering. 
+Modeling and simulation research in mechanics of α+β titanium alloys.
+GPA: 3.9.
+
+2004–2009
+B.S. with Highest Honors, Georgia Institute of Technology, Atlanta, GA
+Materials Science and Engineering.
+GPA: 4.0.
+
+
+SKILLS & TECHNOLOGIES
+Proficient:
+C, Python (and SciPy), Git, Mercurial, Unix, Linux, Vim, LaTeX.
+
+Familiar:
+C++, Java, MATLAB, Fortran, SQL, GDB, OpenMPI, Eclipse, Android development.
+
+
+EXPERIENCE
+
+2012
+User-Level Threading Library, Class Project, Georgia Institute of Technology, Atlanta, GA.
+ * Developed a C threading library that allowed user-defined thread scheduling. The professor selected the library to be used in future course offerings.
+
+2012
+Xen Asynchronous Split-Driver Simulator, Class Project, Georgia Institute of Technology, Atlanta, GA.
+ * In a group, developed a multithreaded, multiprocess Linux application in C to simulate shared memory ring buffers used for asynchronous IO in Xen.
+
+2012–2013
+Teaching Assistant, Database Systems, Georgia Institute of Technology, Atlanta, GA.
+ * Held one-on-one meetings in class of over 240 students to teach high-level concepts such as entity-relationship data modeling, as well as technical help in implementing database-driven applications using MySQL and PHP.
+
+2009–2011
+Post-Graduate Research, Materials Simulation, Georgia Institute of Technology, Atlanta, GA.
+ * Studied the mechanical response and texture evolution of α+β titanium alloys via multiscale modeling and simulation.
+ * Developed new, thermally activated constitutive model based on unique properties of the titanium microstructure.
+ * Implemented crystal plasticity material model in FORTRAN to enhance finite element simulation software.
+ * Built microstructure generation code and post-processing routines using C++, MATLAB, and Python.
+ * Presented results regularly at the meetings of the Center for Computational Materials Design.
+ * Administered the Red Hat Linux computer clusters used by all students in the research group.
+
+2005–2009
+Engineering Co-op, Composites Research, Southern Research Institute, Birmingham, AL.
+ * Five terms as an engineering co-op, performing high-temperature materials research for the aerospace industry.
+ * Investigated the kinetics of phenolic resin pyrolysis using isothermal and nonisothermal thermogravimetry at temperatures up to 1100 ∘C. Co-authored a report presented at the 56th JANNAF Propulsion Meeting.
+ * Designed facility for thermogravimety and dilatometry at temperatures up to 650 ∘C and pressures up to 4.15 MPa.
+ * Coordinated effort to develop, build, and test a facility capable of tensile permeability tests up to 1900 ∘C.
+
+
+ADVANCED COURSEWORK
+Computer Science:
+Adv. Operating Systems, Real-Time & Embedded Systems, Computability and Algorithms, HPC Architecture, Applied Cryptography, Internet Computing, Software Engineering: Analysis & Testing.
+
+Modeling & Simulation:
+Statistics & Numerical Methods, Parallel & Vector Scientific Computing, Adv. Constitutive Relations of Solids, Continuum Mechanics, Quantitative Characterization of Materials.
+
+Materials Engineering:
+Mechanical Behavior of Composites, Thermodynamics of Materials, Kinetics of Phase Transformations, Studies in structure-property relationships of alloys, ceramics, polymers, semiconductors, and composites.
+
+
+SCHOLARSHIPS & AWARDS
+* Henry Ford Award, for the most outstanding academic record in the junior engineering class.
+* President’s Scholarship, Tech’s premier merit-based scholarship awarded to approximately 2% of students.
+* National Merit Scholarship, awarded to the top 0.6% of the 1.4 million or so high school applicants.
