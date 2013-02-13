@@ -73,6 +73,26 @@
   {}%
 }
 
+% Education command
+% 1: date
+% 2: Degree (M.S., B.S., etc)
+% 3: Major
+% 4: GPA
+% 5: School
+% 6: Description
+\newcommand\cvedu[6]
+  {
+    \cventry{#1}
+      {#2}
+      {#3\hfill\small\upshape{#4}}
+      {}
+      {}
+      {#5
+      \ifthenelse{\equal{#6}{}}{}{\\#6}
+      }
+  }
+
+
 % Copied from moderncvclassic.cls for the sole purpose of using \itshape
 % instead of \slshape in the location slot.
 \renewcommand*{\cventry}[7][.25em]{%
@@ -137,34 +157,31 @@
 \vspace*{-4em}
 
 \section{Education}
-\cventry{2011--\phantom{2013}}
+\cvedu{2011--\phantom{2013}}
   {M.S.}
-  {Georgia Institute of Technology}
-  {Atlanta, GA\hfill\small Current GPA: 3.7}
-  {}
-  {%
-    Computer Science, Specialization in Systems Software. \\
+  {Computer Science with Specialization in Systems Software}
+  {Current GPA: 3.7}
+  {Georgia Institute of Technology, Atlanta GA}
+  {
     Expected completion: May 2013.
   }
 
-\cventry{2009--2011}
-  {Post-Graduate Research}
-  {Georgia Institute of Technology}
-  {Atlanta, GA \hfill\small GPA: 3.9}
-  {}
-  {%
-    Completed 2 years of a 4-year Ph.D.\ program in Materials
-    Engineering. \\
-    Modeling and simulation research in mechanics of $\alpha$+$\beta$
-    titanium alloys.
+\cvedu{2009--2011}
+  {Graduate Research Assistant}
+  {Materials Science \& Engineering, Mechanics of Materials}
+  {GPA: 3.9}
+  {Georgia Institute of Technology, Atlanta GA}
+  {
+    Modeling and simulation research in the mechanics of
+    $\alpha$+$\beta$ titanium alloys.
   }
 
-\cventry{2004--2009}
+\cvedu{2004--2009}
   {B.S.\ with Highest Honors}
-  {Georgia Institute of Technology}
-  {Atlanta, GA \hfill\small GPA: 4.0}
+  {Materials Science \& Engineering}
+  {GPA: 4.0}
+  {Georgia Institute of Technology, Atlanta GA}
   {}
-  {Materials Science and Engineering.}
 
 \section{Skills \& Technologies}
 \cvitem{Proficient:}{C, Python (and SciPy), Git, Mercurial, \Unix,
@@ -216,7 +233,7 @@
   }
 
 \cventry{2009--2011}
-  {Post-Graduate Research, Materials Simulation}
+  {Graduate Research Assistant, Materials Simulation}
   {Georgia Institute of Technology}
   {Atlanta, GA}
   {}
