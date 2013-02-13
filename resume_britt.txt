@@ -7,8 +7,7 @@ samuelbritt@gmail.com
 
 
 EDUCATION
-
-2011– May 2013 (expected)
+2011–May 2013 (expected)
 M.S., Georgia Institute of Technology, Atlanta, GA
 Computer Science, Specialization in Systems Software. 
 Current GPA: 3.7.
@@ -34,7 +33,6 @@ C++, Java, MATLAB, Fortran, SQL, GDB, OpenMPI, Eclipse, Android development.
 
 
 EXPERIENCE
-
 2012
 User-Level Threading Library, Class Project, Georgia Institute of Technology, Atlanta, GA.
  * Developed a C threading library that allowed user-defined thread scheduling. The professor selected the library to be used in future course offerings.
@@ -59,9 +57,9 @@ Post-Graduate Research, Materials Simulation, Georgia Institute of Technology, A
 2005–2009
 Engineering Co-op, Composites Research, Southern Research Institute, Birmingham, AL.
  * Five terms as an engineering co-op, performing high-temperature materials research for the aerospace industry.
- * Investigated the kinetics of phenolic resin pyrolysis using isothermal and nonisothermal thermogravimetry at temperatures up to 1100 ∘C. Co-authored a report presented at the 56th JANNAF Propulsion Meeting.
- * Designed facility for thermogravimety and dilatometry at temperatures up to 650 ∘C and pressures up to 4.15 MPa.
- * Coordinated effort to develop, build, and test a facility capable of tensile permeability tests up to 1900 ∘C.
+ * Investigated the kinetics of phenolic resin pyrolysis using isothermal and nonisothermal thermogravimetry at temperatures up to 1100∘C. Co-authored a report presented at the 56th JANNAF Propulsion Meeting.
+ * Designed facility for thermogravimety and dilatometry at temperatures up to 650∘C and pressures up to 4.15 MPa.
+ * Coordinated effort to develop, build, and test a facility capable of tensile permeability tests up to 1900∘C.
 
 
 ADVANCED COURSEWORK
