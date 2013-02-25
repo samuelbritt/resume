@@ -1,0 +1,215 @@
+% options: font family ('sans' and 'roman'), standard article options
+\documentclass[10pt,letterpaper,roman]{moderncv}
+
+% moderncv themes (load first)
+% options: casual, classic, oldstyle, banking
+\moderncvstyle{classic}
+
+ % options: blue, orange, green, red, purple, grey, black
+% \moderncvcolor{orange}
+\definecolor{color0}{rgb}{0,0,0}% black
+% \definecolor{color1}{rgb}{0.95,0.55,0.15}% orange
+% \definecolor{orange}{rgb}{0.95,0.55,0.15}% orange
+% \colorlet{color1}{orange!90!black}
+\definecolor{color1}{rgb}{1,.5,0}
+\definecolor{color2}{gray}{0.4}% dark grey
+
+\usepackage[osf]{mathpazo}
+\usepackage{microtype}
+\usepackage{etoolbox}
+\usepackage{relsize}
+\usepackage{siunitx}
+\usepackage[super]{nth}
+\usepackage[textwidth=110ex,top=1in]{geometry}
+
+% Toggles for various versions. See etoolbox documentation.
+\newtoggle{engineering}
+
+% The version
+\toggletrue{engineering}
+
+%  default font; use '\sfdefault' for sans serif, '\rmdefault' for
+%  roman, or any tex font name
+% \renewcommand{\familydefault}{\sfdefault}
+
+% Small caps headings
+\renewcommand*\sectionfont{%
+  \scshape \lsstyle \fontsize{14}{24}\selectfont%
+}
+
+% Italics, not slanted
+\renewcommand*{\titlefont}{\large\mdseries\itshape}
+\renewcommand*{\addressfont}{\small\mdseries\itshape}
+
+% Pretty ampersand
+\let\oldamp\&
+\renewcommand\&{{\itshape \oldamp}}
+
+% Pretty Languages
+\newcommand\Matlab{\textsc{Matlab}}
+\newcommand\Fortran{\textsc{Fortran}}
+\newcommand\Unix{\textsc{Unix}}
+\newcommand\CC{C%
+  \nolinebreak[4]\hspace{-.05em}\raisebox{.29ex}{\relsize{-1}{++}}%
+}
+
+
+% uncomment to suppress page numbering for CVs longer than one page
+\nopagenumbers{}
+
+% width of date column
+\setlength{\hintscolumnwidth}{1.9cm}
+
+% lists use dashes instead of open bullets
+\let\labelitemi\labelitemii
+
+% Short description
+\newcommand\cvdesc[2]{%
+  \cventry{}%
+  {#1}%
+  {}%
+  {\small #2}%
+  {}%
+  {}%
+}
+
+% Education command
+% 1: date
+% 2: Degree (M.S., B.S., etc)
+% 3: Major
+% 4: GPA
+% 5: School
+% 6: Description
+\newcommand\cvedu[6]
+  {
+    \cventry{#1}
+      {#2}
+      {#3\hfill\small\upshape{#4}}
+      {}
+      {}
+      {#5
+      \ifthenelse{\equal{#6}{}}{}{\\#6}
+      }
+  }
+
+
+% Copied from moderncvclassic.cls for the sole purpose of using \itshape
+% instead of \slshape in the location slot.
+\renewcommand*{\cventry}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\itshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    .\strut%
+    \ifx&#7&%
+    \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}%
+}
+
+\newcommand*{\cvreference}[6]{%
+  \cvitem[7ex]{}{%
+    {\bfseries#1}\newline
+    #2\newline
+    #3\newline
+    \emailsymbol\emaillink{#4}\newline
+    \phonesymbol#5\newline
+    \ifx&#6&%
+    \else{
+      \begin{minipage}[t]{\linewidth}
+        \vspace{1ex}
+        \itshape#6
+      \end{minipage}
+    }\fi}%
+  }
+
+% Github and Linkedin footer items
+\input{icons.tex}
+\newcommand\smallsymbol[1]{\raisebox{-1pt}{#1\hspace{0pt}}}
+\newcommand\githubsymbol{\smallsymbol{\githubpic}}
+\newcommand\github[1]{\githubsymbol\httplink{#1}}
+
+\newcommand\linkedinsymbol{\smallsymbol{\linkedinpic}}
+\newcommand\linkedin[1]{\linkedinsymbol\httplink{#1}}
+
+% personal data
+\firstname{Samuel}
+\familyname{Britt}
+
+% All the following are optional
+\address{3155 Flowers Rd. S Apt. Q}{Atlanta, GA 30341}
+% \email{sam@britts.us}
+\email{samuelbritt@gmail.com}
+\phone{(205)~515~0618}
+% \extrainfo{%
+%   \github{github.com/samuelbritt}
+%   \\ \footersymbol
+%   \linkedin{linkedin.com/in/samuelbritt}
+% }
+% \mobile{(205)~515~0618}
+% \fax{+3~(456)~789~012}
+% \homepage{www.johndoe.com}
+% % \photo[pic-height][frame-thickness]{pic-file}
+% \photo[64pt][0.4pt]{picture}
+
+% Optional
+% \quote{Some quote (optional)}
+% \iftoggle{engineering}{
+%   % \title{Materials Engineer -- Systems Developer}
+%   \title{
+%     \normalsize
+%     From materials engineering to software development through a
+%     passion for technology.
+%   }
+%   % \title{%\normalsize
+%   %   Seeking to leverage an engineering background and passion for
+%   %   technology.
+%     % to pursue systems software development\\through a passion for
+%     % technology.
+%   % }
+% }{}
+
+
+\begin{document}
+\makecvtitle
+
+\section{References}
+\cvreference
+  {Mark Braunstein, M.D.}
+  {Professor of the Practice, College of Computing \newline
+   Associate Director, Health Systems Institute}
+  {Georgia Institute of Technology}
+  {mark.braunstein@innovate.gatech.edu}
+  {(404) 385 3448}
+  {
+    Dr.\ Braunstein teaches the ``Introduction to Health Informatics''
+    course at Georgia Tech, and has been innovating in the healthcare
+    IT space for the past 35 years through research, teaching, and
+    several entrepreneurial efforts.
+  }
+
+\cvreference
+  {Shamkant Navathe, Ph.D.}
+  {Professor, College of Computing}
+  {Georgia Institute of Technology}
+  {navathe@yahoo.com}
+  {(770) 891 8901}
+  {
+    Dr.\ Navathe runs the ``Introduction to Database Systems'' course at
+    Georgia Tech. As a teaching assistant for the course, I report to
+    him and discuss various aspects of the course material and
+    semester project with him.
+  }
+
+\cvreference
+  {Christopher Peikert, Ph.D.}
+  {Assistant Professor, College of Computing}
+  {Georgia Institute of Technology}
+  {cpeikert@cc.gatech.edu}
+  {(404) 385 3264}
+  {
+    Dr.\ Peikert was my professor for a few classes, including an
+    algorithms course I took soon after I enrolled in the master's
+    program in CS and a course on applied cryptography.
+  }
+
+\end{document}
