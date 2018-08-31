@@ -5,14 +5,13 @@
 % options: casual, classic, oldstyle, banking
 \moderncvstyle{classic}
 
- % options: blue, orange, green, red, purple, grey, black
+% options: blue, orange, green, red, purple, grey, black
 % \moderncvcolor{orange}
-\definecolor{color0}{rgb}{0,0,0}% black
-% \definecolor{color1}{rgb}{0.95,0.55,0.15}% orange
-% \definecolor{orange}{rgb}{0.95,0.55,0.15}% orange
-% \colorlet{color1}{orange!90!black}
-\definecolor{color1}{rgb}{1,.5,0}
-\definecolor{color2}{gray}{0.4}% dark grey
+
+\definecolor{color0}{gray}{0} % black
+\definecolor{color1}{rgb}{1,.5,0} % orange
+% \definecolor{color1}{gray}{0.1} % dark grey
+\definecolor{color2}{gray}{0.3} % grey
 
 \usepackage[osf]{mathpazo}
 \usepackage{microtype}
@@ -61,7 +60,10 @@
 \setlength{\hintscolumnwidth}{1.9cm}
 
 % lists use dashes instead of open bullets
-\let\labelitemi\labelitemii
+% \let\labelitemi\labelitemii
+
+% highlight keywords
+\newcommand\kw\textbf
 
 % Short description
 \newcommand\cvdesc[2]{%
@@ -120,15 +122,14 @@
 \familyname{Britt}
 
 % All the following are optional
-\address{3155 Flowers Rd. S Apt. Q}{Atlanta, GA 30341}
-% \email{sam@britts.us}
+\address{1467 Hembree Station Dr}{Marietta, GA 30062}
 \email{samuelbritt@gmail.com}
 \phone{(205)~515~0618}
-% \extrainfo{%
+\extrainfo{%
 %   \github{github.com/samuelbritt}
 %   \\ \footersymbol
-%   \linkedin{linkedin.com/in/samuelbritt}
-% }
+  \linkedin{linkedin.com/in/samuelbritt}
+}
 % \mobile{(205)~515~0618}
 % \fax{+3~(456)~789~012}
 % \homepage{www.johndoe.com}
@@ -136,34 +137,139 @@
 % \photo[64pt][0.4pt]{picture}
 
 % Optional
-% \quote{Some quote (optional)}
-\iftoggle{engineering}{
-  % \title{Materials Engineer -- Systems Developer}
-  \title{
-    \normalsize
-    From materials engineering to software development through a
-    passion for technology.
-  }
-  % \title{%\normalsize
-  %   Seeking to leverage an engineering background and passion for
-  %   technology.
-    % to pursue systems software development\\through a passion for
-    % technology.
-  % }
-}{}
+% % \quote{Some quote (optional)}
+% \iftoggle{engineering}{
+%   % \title{Materials Engineer -- Systems Developer}
+%   \title{
+%     \normalsize
+%     From materials engineering to software development through a
+%     passion for technology.
+%   }
+%   % \title{%\normalsize
+%   %   Seeking to leverage an engineering background and passion for
+%   %   technology.
+%     % to pursue systems software development\\through a passion for
+%     % technology.
+%   % }
+% }{}
 
 \begin{document}
 \makecvtitle
-\vspace*{-4em}
+\vspace*{-3em}
+
+
+\section{Experience}
+
+\cventry{2015--\phantom{2015}}
+% \cventry{2015--present}
+% \cventry{2015--\phantom{2015}\\ \small present}
+  {Staff Developer, People Manager}
+  {athenahealth}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Led a team of 7 stateside and offshore engineers in developing and
+        operating a distributed \kw{ETL} pipeline from an \kw{Oracle/Linux} stack into
+        centralized \kw{Microsoft SQL Server} databases.
+      \item Served as tech lead in stabilizing ETL operations, bringing monthly
+        failure rates from 9\% to less than 0.5\%.
+      \item Worked with business stakeholders to prioritize the team's work and
+        communicate project status and projections.
+      \item Developed several internal tools to improve team productivity,
+        using \kw{Bash}, \kw{Python}, \kw{Perl}, and \kw{Backbone.js}.
+      \item Designed and developed a query-generating API to service business
+        intelligence applications.
+      \item Selected to teach 10 new product owners about \kw{Agile Scrum}, and
+        lead a workshop on user story writing.
+      \item Selected to join a small Scrum team to design athena's
+        next-generation data analytics, using \kw{Snowflake}, a cloud-based MPP database, and
+        \kw{Looker}, a data modeling and visualization tool.
+    \end{itemize}
+  }
+
+
+\cventry{2014--2015}
+  {Senior Developer}
+  {athenahealth}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Developed a \kw{T-SQL}-based data transformation framework to allow for
+        rapid extensions of existing data pipelines.
+      \item Leveraged the framework to rapidly deploy a transformation of our
+        largest data pipelines into a columnar database format, dramatically
+        reducing runtimes for analytics queries.
+    \end{itemize}
+  }
+
+\cventry{2013--2014}
+  {Developer}
+  {athenahealth}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Data customization and ETL process automation for Analytics, a
+        health care revenue cycle BI tool targeted at large health systems.
+        Utilized the Microsoft BI stack: \kw{SSIS}, \kw{T-SQL}, and \kw{SQL Server}.
+    \end{itemize}
+  }
+
+\cventry{2012--2013}
+  {Teaching Assistant, Database Systems}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Taught entity-relationship modeling; advised on database-driven app
+        development using \kw{MySQL} and \kw{PHP}.
+    \end{itemize}
+  }
+
+\cventry{2009--2011}
+  {Graduate Research Assistant, Materials Simulation}
+  {Georgia Institute of Technology}
+  {Atlanta, GA}
+  {}
+  {
+    \begin{itemize}
+      \item Simulated the mechanical response and texture evolution of
+      $\alpha$+$\beta$ titanium alloys via multiscale modeling.
+      \item Implemented thermally activated crystal plasticity model,
+        microstructure  generation code, and post-processing routines using
+        \Fortran, \kw{\CC}, \Matlab, and \kw{Python}.
+      \item Presented results regularly at the meetings of the Center for
+        for Computational Materials Design.
+    \end{itemize}
+  }
+
+\cventry{2005--2009}
+  {Engineering Co-op, Composites Research}
+  {Southern Research Institute}
+  {Birmingham, AL}
+  {}
+  {
+    \begin{itemize}
+      \item Investigated the kinetics of phenolic pyrolysis
+        via thermogravimetry at temperatures up to \SI{1100}{\celsius}.
+      \item Designed facility for high-temperature and high-pressure
+        thermogravimety and dilatometry.
+      \item Co-authored a report presented at the \nth{56} JANNAF Propulsion
+        Meeting.
+    \end{itemize}
+  }
 
 \section{Education}
-\cvedu{2011--\phantom{2013} current}
-  {M.S.}
-  {Computer Science with Specialization in Systems Software}
-  {Current GPA: 3.7}
+\cvedu{2011--2013}
+  {Master of Science}
+  {Computer Science}
+  {GPA: 3.7}
   {Georgia Institute of Technology, Atlanta GA}
   {
-    Expected completion: May 3, 2013.
+    Specialization in Systems Software.
   }
 
 \cvedu{2009--2011}
@@ -177,146 +283,50 @@
   }
 
 \cvedu{2004--2009}
-  {B.S.\ with Highest Honors}
+  {Bachelor of Science, Highest Honors}
   {Materials Science \& Engineering}
   {GPA: 4.0}
   {Georgia Institute of Technology, Atlanta GA}
   {}
 
 \section{Skills \& Technologies}
-\cvitem{Proficient:}{C, Python (and SciPy), Git, Mercurial, \Unix,
-  Linux, Vim, \LaTeX.}
-  \cvitem{Familiar:}{\CC, Java, \Matlab, \Fortran, SQL, GDB, OpenMPI,
-  Bash, Eclipse, Android development.}
+% \cvitem{Proficient:}{C, Python, Perl, T-SQL, MS SQL Server, Git, Perforce, \Unix.}
+% \cvitem{Familiar:}{\CC, SciPy, Java, JavaScript, \Matlab, Bash, Eclipse,
+  % Android development.}
 
-\section{Experience}
 
-\cventry{2012}
-  {User-Level Threading Library, Class Project}
-  {Georgia Institute of Technology}
-  {Atlanta, GA}
-  {}
-  {
-    \begin{itemize}
-      \item Developed a C threading library that allowed user-defined
-        thread scheduling. The professor selected the library to be
-        used in future course offerings.
-    \end{itemize}
-  }
-
-\cventry{2012}
-  {Xen Asynchronous Split-Driver Simulator, Class Project}
-  {Georgia Institute of Technology}
-  {Atlanta, GA}
-  {}
-  {
-    \begin{itemize}
-      \item In a group, developed a multithreaded, multiprocess
-        Linux application in C to simulate shared memory ring buffers
-        used for asynchronous IO in Xen.  Required use of  semaphores,
-        mutexes, and condition variables.
-    \end{itemize}
-  }
-
-\cventry{2012--2013}
-  {Teaching Assistant, Database Systems}
-  {Georgia Institute of Technology}
-  {Atlanta, GA}
-  {}
-  {
-    \begin{itemize}
-      \item Held one-on-one meetings in class of over 240 students to
-        teach high-level concepts such as entity-relationship data
-        modeling, as well as technical help in implementing
-        database-driven applications using MySQL and PHP.
-    \end{itemize}
-  }
-
-\cventry{2009--2011}
-  {Graduate Research Assistant, Materials Simulation}
-  {Georgia Institute of Technology}
-  {Atlanta, GA}
-  {}
-  {
-    Studied the mechanical response and texture evolution of
-    $\alpha$+$\beta$ titanium alloys via multiscale modeling and
-    simulation.
-    \begin{itemize}
-      \item Contributed new, thermally activated constitutive model
-        based on unique properties of the titanium microstructure.
-      \item Implemented crystal plasticity material model, microstructure
-        generation code, and post-processing
-        routines using \Fortran, \CC, \Matlab, and Python.
-      \item Presented results regularly at the meetings of the Center
-        for Computational Materials Design via talks and posters.
-      \item Administered the Red Hat cluster used by the research
-        group, developing Bash scripts to automate many tasks.
-    \end{itemize}
-  }
-
-\cventry{2005--2009}
-  {Engineering Co-op, Composites Research}
-  {Southern Research Institute}
-  {Birmingham, AL}
-  {}
-  {%
-    Five terms as an engineering co-op, performing high-temperature
-    materials research for the aerospace industry.
-    \begin{itemize}%
-      \item Investigated the kinetics of phenolic resin pyrolysis
-        using isothermal and nonisothermal thermogravimetry at
-        temperatures up to \SI{1100}{\celsius}. Co-authored a report
-        presented at the \nth{56} JANNAF Propulsion Meeting.
-      \item Designed facility for thermogravimety and dilatometry at
-        temperatures up to \SI{650}{\celsius} and pressures up to
-        \SI{4.15}{\mega\pascal}.
-      \item Coordinated effort to develop, build, and test a facility
-        capable of tensile permeability tests up to
-        \SI{1900}{\celsius}.
-      % \item Oversaw operation and maintenance of a permeability
-      %   facility testing carbon-phenolic composites up to
-      %   \SI{1300}{\celsius}.
-    \end{itemize}
-  }
-
-\newlength\coursesep
-\setlength{\coursesep}{1.3ex}
-\section{Advanced Coursework}
-\cvitem[\coursesep]{Computer Science}{Adv.\ Operating Systems,
-  Real-Time \& Embedded Systems, Computability and Algorithms, HPC
-  Architecture, Applied Cryptography, Internet Computing, Software
-  Engineering: Analysis \& Testing.}
-\cvitem[\coursesep]{Modeling \& Simulation}{Statistics \& Numerical
-  Methods, Parallel \& Vector Scientific Computing, Adv.\ Constitutive
-  Relations of Solids, Continuum Mechanics, Quantitative
-  Characterization of Materials.}
-\cvitem{Materials Engineering}{Mechanical Behavior of Composites,
-  Thermodynamics of Materials, Kinetics of Phase Transformations,
-  Studies in structure-property relationships of alloys, ceramics,
-  polymers, semiconductors, and composites.}
-
+\cvitem{Languages:}{C, Python, Perl, T-SQL, \CC, SciPy, Java, JavaScript, Backbone.js, HTML, CSS, \Matlab}
+\cvitem{Tools:}{Git, Perforce, \Unix, SSMS, Jira, SQL Server, Snowflake, Looker}
+\cvitem{Concepts:}{Agile Scrum, Unit Testing, Query Optimization, Data Warehousing, ETL, BI, Database Schema Design, ER Modeling, Healthcare Revenue Cycle, MVC Design, Data Visualization}
 
 \section{Scholarships \& Awards}
-\cvdesc{Henry Ford Award}{for the most outstanding academic record in
-  the junior engineering class}
-% \cvdesc{Wohlford Co-Op Scholarship}{for outstanding contributions to
-%   Tech and high scholastic achievement}
-% \cvdesc{Chapman-Pentecost Scholarship}{for most outstanding
-%   academic record as a junior MSE student}
-% \cvdesc{Blount Scholarship}{for outstanding academic performance
-%   as an engineering student from Alabama}
-\cvdesc{President's Scholarship}{Tech's premier merit-based
-  scholarship awarded to approximately \SI{2}{\percent} of students}
-\cvdesc{National Merit Scholarship}{awarded to the top
-  \SI{0.6}{\percent} of the 1.4 million or so high school
-  applicants}
-% \cvdesc{S.\ Truett Cathy Scholar Award}{awarded to the top $25$
-%   Chick-fil-A employees nationwide for demonstrated excellence in the
-%   areas of work, education, community and personal leadership
-%   development}
-% \cvdesc{Chick-fil-A Leadership Scholarship}{for demonstrated
-%   excellence in the areas of work, education, community and
-%   personal leadership development}
+\cventry{2015}
+  {Banner Year Award}
+  {for exceptional "stand-out" performance and significant business impact in a calendar year}
+  {}
+  {}
+  {}
+
+\cventry{2014}
+  {Extra Mile Award}
+  {for extraordinary effort, taking on work outside of job scope to help a colleague}
+  {}
+  {}
+  {}
+
+\cventry{2007}
+  {Henry Ford Award}
+  {for the most outstanding academic record in the junior engineering class}
+  {}
+  {}
+  {}
+
+\cventry{2004}
+  {President's Scholarship}
+  {Tech's premier merit-based scholarship awarded to approximately 2\% of students}
+  {}
+  {}
+  {}
 
 \end{document}
 
